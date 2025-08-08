@@ -60,7 +60,7 @@ function copyImageForProduct(data){
 	return request.get('/erp/api/v1/material/copyImageForProduct',{params:data});
 }
 function copyDimsForProduct(data){
-	return request.get('/erp/api/v1/material/copyDimsForProduct',{params:data});
+	return request.post('/erp/api/v1/material/copyDimsForProduct',data);
 }
 
 function saveData(FormData){
