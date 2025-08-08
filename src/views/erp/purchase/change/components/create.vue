@@ -181,7 +181,7 @@
 			entryNumber:'',
 			entryid:null,
 			uploadVisible:false,
-			
+			withoutInv:false,
 		},
 		myfile:null,
 		warehouseid:"",

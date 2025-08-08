@@ -147,7 +147,7 @@
 					"searchtype":searchtype.value,
 					"fromDate":fromDate.value,
 					"toDate":toDate.value,
-					"isConsumable":props.isConsumable,
+					"isConsumable":'',
 				}) 
 			}
 			function getWarehouseid(data){
