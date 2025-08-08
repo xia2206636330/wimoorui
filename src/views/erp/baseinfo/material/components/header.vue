@@ -1042,6 +1042,7 @@
 							state.pictureTable.forEach(function(mitem){
 								var items=data[mitem.sku];
 								if(items&&mitem.sku==items.materialSKU){
+									mitem.info=items;
 									mitem.infoimage=items.image;
 									mitem.pname=items.infoName;
 									mitem.infoSKU=items.infoSKU;
@@ -1092,20 +1093,14 @@
 			
 		}
 		function submitSize(){
-				var materialids="";
-				var skus="";
-				var dims="";
+				var list=[];
 				state.pictureTable.forEach(function(item){
 					if(item.ischeck==true){
-						if(item.dimid){
-							materialids+=(item.id+"%,#");
-							skus+=(item.sku+"%,#");
-							dims+=(item.dimid+"%,#");
-						}
+					   list.push(item.info);
 					}
 				});
-				if(materialids!="" && skus!="" && dims!=""){
-					materialApi.copyDimsForProduct({"sku":skus,"materialid":materialids,"dims":dims}).then((res)=>{
+				if(list.length>0){
+					materialApi.copyDimsForProduct(list).then((res)=>{
 						    var data=res.data;
 							if(data && data.length > 0){
 								var msg = "";

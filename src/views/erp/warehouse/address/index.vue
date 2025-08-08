@@ -158,6 +158,7 @@
 import { onMounted, reactive, ref, toRefs } from 'vue';
 // API依赖
 import warehouseAddressApi from '@/api/erp/warehouse/warehouseAddressApi.js';
+import {formatFloat,parseTime,deepCopy} from '@/utils/index.js';
 // 组件依赖
 import { Search,  Edit, Refresh, Delete } from '@element-plus/icons-vue';
 	import {Plus,Help} from '@icon-park/vue-next';
@@ -284,6 +285,7 @@ import WarehouseDialog from "@/views/erp/warehouse/base/warehouseDialog.vue"
 	  function submitForm() {
 	    dataFormRef.value.validate((valid) => {
 	      if (valid) {
+			state.formData.lostEffectDate = parseTime(state.formData.lostEffectDate,'{y}-{m}-{d} {h}:{i}:{s}')
 	        if (state.formData.id) {
 	          warehouseAddressApi.updateWarehouseAddress(state.formData.id, state.formData).then(() => {
 	            ElMessage.success('修改成功');
