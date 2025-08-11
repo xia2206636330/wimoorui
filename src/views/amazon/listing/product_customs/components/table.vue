@@ -145,7 +145,7 @@
 						 <template #content><div style="max-width:400px;"  v-html="scope.row.htmlremark"></div></template>
 				          <span class="text-omit-3" v-html="scope.row.htmlremark"> </span>
 				         </el-tooltip>
-						   <el-icon ><Edit/></el-icon>
+						   <!-- <el-icon ><Edit/></el-icon> -->
 			   </div>
 		        </template>
 		   </el-table-column>
